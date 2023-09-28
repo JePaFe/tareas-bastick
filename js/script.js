@@ -2,7 +2,7 @@ const listaTareas = document.querySelector("#lista-tareas");
 let tareas;
 
 const loadTask = async () => {
-  // localStorage.clear();
+  localStorage.clear();
   listaTareas.innerHTML = "";
 
   tareas = localStorage.getItem("tareas");
@@ -46,10 +46,23 @@ const createTask = (tarea) => {
 
   // console.log(img);
 
+  const p = document.createElement("p");
+
+  const estrellas = ["☠", "☠", "☠", "☠", "☠"];
+
+  for (let i = 0; i < tarea.estrellas.length; i++) {
+    estrellas[i] = "😁";
+  }
+
+  p.textContent = estrellas.join("");
+
+  // console.log(p);
+
   const article = document.createElement("article");
 
   article.appendChild(h2);
   article.appendChild(img);
+  article.appendChild(p);
 
   // console.log(article);
 
